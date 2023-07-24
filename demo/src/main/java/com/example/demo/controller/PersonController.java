@@ -48,6 +48,10 @@ public class PersonController {
 
         return ResponseEntity.ok(new AuthenticationResponse(jwt));
     }
+    @ExceptionHandler(BadCredentialsException.class)
+    public ResponseEntity<String> credentialException() {
+        return new ResponseEntity<String>("Bad Credentials",HttpStatus.BAD_REQUEST);
+    }
 
     @PostMapping("add")
     public ResponseEntity<Person> create(@RequestBody Person person)
