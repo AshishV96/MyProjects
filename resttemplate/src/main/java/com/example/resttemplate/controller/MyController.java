@@ -13,9 +13,6 @@ public class MyController {
     @GetMapping("start")
     public void startLoop() throws InterruptedException {
 
-        int arr[] = {1,2,3};
-        int arr1[] = arr;
-
         int len = 0;
         while(true)
         {
