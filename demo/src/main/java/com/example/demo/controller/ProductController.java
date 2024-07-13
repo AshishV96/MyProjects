@@ -16,17 +16,14 @@ public class ProductController {
     private ProductService service;
 
     @GetMapping("get/{id}")
-    public ResponseEntity<?> get(@PathVariable(name = "id") Integer id)
-    {
+    public ResponseEntity<?> get(@PathVariable(name = "id") Integer id) {
 
-        ProductDTO resp = service.get(id);
-
-        if(resp.getId()!=null)
+        try{
+            ProductDTO resp = service.get(id);
             return new ResponseEntity<ProductDTO>(resp, HttpStatus.FOUND);
-
-        else
-            return new ResponseEntity<String>("Product not Found", HttpStatus.NOT_FOUND);
-
+        }catch (Exception ex) {
+            return new ResponseEntity<String>("No product found", HttpStatus.NOT_FOUND);
+        }
     }
 
     @PostMapping("add")

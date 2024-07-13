@@ -14,12 +14,12 @@ public class ProductServiceImplementation implements ProductService {
     @Autowired
     private ProductRepository repo;
 
-    public ProductDTO get(Integer id)
-    {
+    public ProductDTO get(Integer id) throws Exception {
+
         Optional<Product> product = repo.findById(id);
 
         if(product.isEmpty())
-            return new ProductDTO();
+            throw new Exception("Product not found");
 
         else
             return new ProductDTO(product.get().getId(),product.get().getName(),product.get().getCategory(),product.get().getDescp());

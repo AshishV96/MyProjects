@@ -4,7 +4,7 @@ import com.example.demo.models.ProductDTO;
 
 public interface ProductService {
 
-    public ProductDTO get(Integer id);
+    public ProductDTO get(Integer id) throws Exception;
 
     public Integer update(Integer id,ProductDTO newProd);
 

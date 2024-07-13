@@ -7,5 +7,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" scope="TEST" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.13.5" level="project" />
+    <orderEntry type="library" name="Maven: org.projectlombok:lombok:1.18.28" level="project" />
   </component>
 </module>

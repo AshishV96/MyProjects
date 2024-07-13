@@ -20,12 +20,12 @@ public class Person {
     private Integer age;
 //    @Transient
 //    @JsonInclude(JsonInclude.Include.NON_EMPTY)
-    @OneToOne(mappedBy = "person",cascade = CascadeType.ALL)
-    @PrimaryKeyJoinColumn
-    private Address address;
-
-    public void setAddress(Address address) {
-        this.address = address;
-        this.address.setPerson(this);
-    }
+//    @OneToOne(mappedBy = "person",cascade = CascadeType.ALL)
+//    @PrimaryKeyJoinColumn
+//    private Address address;
+//
+//    public void setAddress(Address address) {
+//        this.address = address;
+//        this.address.setPerson(this);
+//    }
 }

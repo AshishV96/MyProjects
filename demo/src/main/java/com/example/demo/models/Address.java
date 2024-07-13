@@ -19,9 +19,9 @@ public class Address {
     private String state;
     private long pincode;
 
-    @JsonIgnore
-    @OneToOne
-    @MapsId
-    @JoinColumn(name = "p_id")
-    private Person person;
+//    @JsonIgnore
+//    @OneToOne
+//    @MapsId
+//    @JoinColumn(name = "p_id")
+//    private Person person;
 }

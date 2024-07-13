@@ -1,14 +1,16 @@
 package com.example.resttemplate.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpSession;
+import java.net.http.HttpRequest;
+import java.util.Random;
 
 @RestController
 @RequestMapping("my")
 public class MyController {
 
+    private Double OTP;
     private String str = "Hello";
     @GetMapping("start")
     public void startLoop() throws InterruptedException {
@@ -38,5 +40,27 @@ public class MyController {
         return "added";
     }
 
+    @GetMapping("sendOTP")
+    public String sendOTP(HttpSession session) throws InterruptedException {
+        Random random = new Random();
+        Integer OTP = random.nextInt(899999)+100000;
+        System.out.println("Session ID:: "+session.getId());
+        System.out.println(OTP);
+        session.setAttribute("OTP",OTP);
+        Thread.sleep(2000);
+        return "OTP Sent";
+    }
+
+    @PostMapping("isOTPValid")
+    public String isOTPValid(@RequestBody Integer OTP,HttpSession session)
+    {
+        if(OTP.compareTo((Integer)session.getAttribute("OTP"))==0)
+            return "OTP Valid";
+
+        else {
+            System.out.println(session.getAttribute("OTP"));
+            return "OTP Invalid";
+        }
+    }
 
 }
