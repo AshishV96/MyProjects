@@ -188,4 +188,10 @@ public class Codes {
         }
     }
 
+    public static void downShift(int[] nums, int m) {
+        for (int i = nums.length - 1; i > m; i--) {
+            nums[i] = nums[i - 1];
+        }
+    }
+
 }
