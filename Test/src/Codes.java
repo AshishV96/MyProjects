@@ -189,6 +189,7 @@ public class Codes {
     }
 
     public static void leftShift(int[] nums, int m) {
+
         for (int i = nums.length - 1; i > m; i--) {
             nums[i] = nums[i - 1];
         }
